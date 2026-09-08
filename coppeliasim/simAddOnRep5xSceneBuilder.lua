@@ -347,18 +347,14 @@ end
 
 function sysCall_beforeSimulation()
     if not state.handles[profile.joints.X] then return end
-    local plugin=rawget(_G,'simFIBR3D')
-    local ok=type(plugin)=='table'
-    if not ok then ok,plugin=pcall(require,'simExtFIBR3D') end
-    if ok and plugin and plugin.init then
-        local appPath=sim.getStringParam(sim.stringparam_application_path)
-        local configPath=appPath..'/config/rep5x_ender3_v3_se.json'
-        local initOk,err=pcall(plugin.init,profile.root,5,configPath)
-        if initOk then status('plugin connected; parser TCP server will start') else fail('plugin init failed: '..tostring(err)) end
-    else
-        status('plugin unavailable; local jog/G-code test remains available')
+
+    -- Presentation/local mode:
+    -- Do not load the legacy simExtFIBR3D C++ plugin.
+    status('local G-code mode; plugin disabled')
+
+    if state.selfTestPath then
+        rep5xStart()
     end
-    if state.selfTestPath then rep5xStart() end
 end
 
 function sysCall_actuation()
