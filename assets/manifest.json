@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "source_repository": "https://github.com/dennisklappe/Rep5x",
+  "source_commit": "9c437d5cce7766d641e7aa35ced2c63231148a1f",
+  "license": {
+    "declared": "GPL-3.0",
+    "evidence": "Rep5x README.md lines 119-121",
+    "license_file_at_source_commit": false,
+    "note": "The repository declares GPL v3 but the audited commit does not contain the README-referenced LICENSE file. This packaging records that upstream inconsistency rather than inventing license text."
+  },
+  "conversion": {
+    "script": "tools/convert_3mf_assets.py",
+    "report": "assets/conversion-report.json",
+    "format": "binary STL",
+    "unit": "millimeter",
+    "preserves": ["model unit", "build item transform", "component transform"],
+    "collision_proxy": "separate primitive geometry in coppeliasim/simAddOnRep5xSceneBuilder.lua"
+  },
+  "assets": [
+    {
+      "source": "build-guide/printer-specific/ender-3-v3-se/3d-printed-parts/current/3mf/carriage-mount_v1.1.1.3mf",
+      "source_sha256": "87e6276696ce1a355373d9a472dab09662cc832d2ddd91db155296583c04913b",
+      "converted": "assets/rep5x_stl/carriage-mount_v1.1.1.stl",
+      "attached_link": "Rep5x_XCarriage",
+      "attachment_evidence": "verified: Ender guide names the printer-specific part; universal assembly step 10 mounts it to the X-carriage",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/printer-specific/ender-3-v3-se/3d-printed-parts/current/3mf/extruder-mount_v1.1.0.3mf",
+      "source_sha256": "ab9ddc5addcbf455885c62ef0da41a37ed737f7ad1304afaf148bc192833192d",
+      "converted": "assets/rep5x_stl/extruder-mount_v1.1.0.stl",
+      "attached_link": "Rep5x_FixedFrame",
+      "attachment_evidence": "verified: Ender assembly lines 31-43 mount the external Bowden extruder to the printer frame",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/printer-specific/ender-3-v3-se/3d-printed-parts/current/3mf/x-endstop_v1.1.0.3mf",
+      "source_sha256": "6b8c24460c52460c0ce0585989aebf39e72f80fa5375a43f6362ac2c3d5d4583",
+      "converted": "assets/rep5x_stl/x-endstop_v1.1.0.stl",
+      "attached_link": "Rep5x_ZGantry",
+      "attachment_evidence": "inferred: Ender assembly lines 18-29 say right side of X gantry; exact CAD mating transform is absent",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/printer-specific/ender-3-v3-se/3d-printed-parts/current/3mf/z-endstop_v1.1.0.3mf",
+      "source_sha256": "5e09eb280689c26e38dd31540648ca91bf90a854d4a47d0f28d491c695d60c02",
+      "converted": "assets/rep5x_stl/z-endstop_v1.1.0.stl",
+      "attached_link": "Rep5x_ZGantry",
+      "attachment_evidence": "inferred: Ender assembly lines 5-16 say left side of X gantry; exact CAD mating transform is absent",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/b-arm_v1.1.0.3mf",
+      "source_sha256": "8886aae3c558bfa06b3fa542e9513709abfd114ea40e697089e44d3e5ade803d",
+      "converted": "assets/rep5x_stl/b-arm_v1.1.0.stl",
+      "attached_link": "Rep5x_CLink",
+      "attachment_evidence": "verified link membership: steps 8, 12, and 13 make it the C-rotating carrier of the B drive; exact transform unknown",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/b-driven-pulley_v1.1.0.3mf",
+      "source_sha256": "92c80f6f2e2014d43a161181ed01cbd7ed541a701bc3825ee17abc81d8c5773d",
+      "converted": "assets/rep5x_stl/b-driven-pulley_v1.1.0.stl",
+      "attached_link": "Rep5x_BLink",
+      "attachment_evidence": "verified link membership: universal assembly steps 6, 8, and 13 identify the B driven pulley",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/C-driven-pulley_v1.1.0.3mf",
+      "source_sha256": "7bfe2706ae6c75bb33eb71180bc572e0fca51422ff8f137124692a099bd51656",
+      "converted": "assets/rep5x_stl/C-driven-pulley_v1.1.0.stl",
+      "attached_link": "Rep5x_CLink",
+      "attachment_evidence": "verified link membership: universal assembly step 11 identifies it as the C-axis driven pulley",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/hotend-spacer_v1.0.0.3mf",
+      "source_sha256": "7869cf52a5720881b0c915e3c42e833a6a6c9daae4e7b8fe565573e53e32c744",
+      "converted": "assets/rep5x_stl/hotend-spacer_v1.0.0.stl",
+      "attached_link": "Rep5x_BLink",
+      "attachment_evidence": "inferred from part name and hotend assembly; no explicit placement in audited assembly text",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/slip-ring-holder_v1.1.1.3mf",
+      "source_sha256": "ba110e192687fc50d5b0f26e9172ebf9faab7c47b46c016e67f86fd57612488b",
+      "converted": "assets/rep5x_stl/slip-ring-holder_v1.1.1.stl",
+      "attached_link": "Rep5x_CLink",
+      "attachment_evidence": "inferred: slip-ring wiring passes through the C pulley; exact holder placement is not stated",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/spacer-3mm_v1.0.0.3mf",
+      "source_sha256": "17d37537df7546f1131a04cc1a160f74fb61134fc670e186ef0ddc4b10c35feb",
+      "converted": "assets/rep5x_stl/spacer-3mm_v1.0.0.stl",
+      "attached_link": null,
+      "attachment_evidence": "unknown: audited text does not uniquely identify the mating link",
+      "assembly_transform": "unknown",
+      "used_in_generated_scene": false
+    }
+  ],
+  "placeholders": [
+    "stock Ender-3 V3 SE frame",
+    "stock Ender-3 V3 SE moving bed",
+    "stock Ender-3 V3 SE Z gantry",
+    "stock hotend/nozzle",
+    "all collision proxies"
+  ]
+}

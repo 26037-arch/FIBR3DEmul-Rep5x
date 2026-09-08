@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\simExtFIBR3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\Extruder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\Listener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\Path.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\Printer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\Rep5xMotionAdapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\Server.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\Speaker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\Trajectory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\VelocityProfile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\src\string_concurrent_queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\luaFunctionData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\luaFunctionDataItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\scriptFunctionData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\scriptFunctionDataItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\shared_memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\simLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\socketInConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\socketOutConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\stack\stackArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\stack\stackBool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\stack\stackMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\stack\stackNull.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\stack\stackNumber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\stack\stackObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\coppelia\common\stack\stackString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="C:\vcpkg\installed\x64-windows\share\boost-1.91.0\assert\boost_assert.natvis" />
+    <Natvis Include="C:\vcpkg\installed\x64-windows\share\boost-1.91.0\unordered\boost_unordered.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E2FEBF1E-0FFC-3B8B-A043-440A7AD6FEA3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

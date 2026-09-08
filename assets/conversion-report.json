@@ -1,0 +1,245 @@
+{
+  "converter": "tools/convert_3mf_assets.py",
+  "assets": [
+    {
+      "source": "build-guide/printer-specific/ender-3-v3-se/3d-printed-parts/current/3mf/carriage-mount_v1.1.1.3mf",
+      "source_sha256": "87e6276696ce1a355373d9a472dab09662cc832d2ddd91db155296583c04913b",
+      "output": "assets/rep5x_stl/carriage-mount_v1.1.1.stl",
+      "output_sha256": "c696b06d27c34bbc88dc0c7584b2ccaa2dd502978c610ecb876e05147c4ef5e8",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 16534,
+      "bbox_mm": {
+        "min": [
+          -2.0,
+          -54.0,
+          -58.0
+        ],
+        "max": [
+          117.895,
+          2.5,
+          0.0
+        ]
+      }
+    },
+    {
+      "source": "build-guide/printer-specific/ender-3-v3-se/3d-printed-parts/current/3mf/extruder-mount_v1.1.0.3mf",
+      "source_sha256": "ab9ddc5addcbf455885c62ef0da41a37ed737f7ad1304afaf148bc192833192d",
+      "output": "assets/rep5x_stl/extruder-mount_v1.1.0.stl",
+      "output_sha256": "5d5aa83f7602d787e45bd814a005fd2d2a53d9a0c832dbef498e100553293b2d",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 4412,
+      "bbox_mm": {
+        "min": [
+          -23.25,
+          -82.75,
+          0.0
+        ],
+        "max": [
+          23.25,
+          14.75,
+          65.0
+        ]
+      }
+    },
+    {
+      "source": "build-guide/printer-specific/ender-3-v3-se/3d-printed-parts/current/3mf/x-endstop_v1.1.0.3mf",
+      "source_sha256": "6b8c24460c52460c0ce0585989aebf39e72f80fa5375a43f6362ac2c3d5d4583",
+      "output": "assets/rep5x_stl/x-endstop_v1.1.0.stl",
+      "output_sha256": "2b88d4a3422a845d2c55b1e7a324b1e3559682bbbd6e1dc9bf0573b9e5485ce2",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 6538,
+      "bbox_mm": {
+        "min": [
+          -13.494079,
+          -18.0,
+          -1.5
+        ],
+        "max": [
+          13.494079,
+          7.5,
+          6.1
+        ]
+      }
+    },
+    {
+      "source": "build-guide/printer-specific/ender-3-v3-se/3d-printed-parts/current/3mf/z-endstop_v1.1.0.3mf",
+      "source_sha256": "5e09eb280689c26e38dd31540648ca91bf90a854d4a47d0f28d491c695d60c02",
+      "output": "assets/rep5x_stl/z-endstop_v1.1.0.stl",
+      "output_sha256": "fca54346d723efc9fc07667c81c53cd74818a3d7a809b666e43d98ec0a7b653e",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 1442,
+      "bbox_mm": {
+        "min": [
+          -3.0,
+          -10.0,
+          0.0
+        ],
+        "max": [
+          18.0,
+          12.0,
+          19.0
+        ]
+      }
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/b-arm_v1.1.0.3mf",
+      "source_sha256": "8886aae3c558bfa06b3fa542e9513709abfd114ea40e697089e44d3e5ade803d",
+      "output": "assets/rep5x_stl/b-arm_v1.1.0.stl",
+      "output_sha256": "2ef33763860aec08b297f79c92ef1ccadcd54d97fb8f190aa2e96a05de9faab6",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 10268,
+      "bbox_mm": {
+        "min": [
+          -24.0,
+          -56.820272,
+          -16.0
+        ],
+        "max": [
+          24.0,
+          35.0,
+          35.382124
+        ]
+      }
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/b-driven-pulley_v1.1.0.3mf",
+      "source_sha256": "92c80f6f2e2014d43a161181ed01cbd7ed541a701bc3825ee17abc81d8c5773d",
+      "output": "assets/rep5x_stl/b-driven-pulley_v1.1.0.stl",
+      "output_sha256": "d3c761005f54373a51128f199981a219598ae42c5c8c40c2c1000cf1a3f1f53c",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 23124,
+      "bbox_mm": {
+        "min": [
+          -20.48115,
+          -20.474246,
+          -8.9
+        ],
+        "max": [
+          20.508934,
+          20.520796,
+          16.5
+        ]
+      }
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/C-driven-pulley_v1.1.0.3mf",
+      "source_sha256": "7bfe2706ae6c75bb33eb71180bc572e0fca51422ff8f137124692a099bd51656",
+      "output": "assets/rep5x_stl/C-driven-pulley_v1.1.0.stl",
+      "output_sha256": "7f0d885c1f09a8c2583834e7e2812e149036f3f57ff701ce4607de9c15708029",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 40812,
+      "bbox_mm": {
+        "min": [
+          -20.480746,
+          -20.474146,
+          -8.9
+        ],
+        "max": [
+          20.508934,
+          20.520694,
+          22.5
+        ]
+      }
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/hotend-spacer_v1.0.0.3mf",
+      "source_sha256": "7869cf52a5720881b0c915e3c42e833a6a6c9daae4e7b8fe565573e53e32c744",
+      "output": "assets/rep5x_stl/hotend-spacer_v1.0.0.stl",
+      "output_sha256": "36520e4eee523b5fc4de9a2e7af3f816cc7b30ed64988d6111ae7b68bb451d70",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 692,
+      "bbox_mm": {
+        "min": [
+          -10.0,
+          0.0,
+          -3.0
+        ],
+        "max": [
+          10.0,
+          4.0,
+          3.0
+        ]
+      }
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/slip-ring-holder_v1.1.1.3mf",
+      "source_sha256": "ba110e192687fc50d5b0f26e9172ebf9faab7c47b46c016e67f86fd57612488b",
+      "output": "assets/rep5x_stl/slip-ring-holder_v1.1.1.stl",
+      "output_sha256": "7eeba7d25c4ff6a7650d21434d1de907da7ebbd3b77e49f554b3225fa0fbaf91",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 2840,
+      "bbox_mm": {
+        "min": [
+          -1.9,
+          -7.9,
+          0.0
+        ],
+        "max": [
+          1.9,
+          7.9,
+          14.0
+        ]
+      }
+    },
+    {
+      "source": "build-guide/universal-parts/3d-printed-parts/current/3mf/spacer-3mm_v1.0.0.3mf",
+      "source_sha256": "17d37537df7546f1131a04cc1a160f74fb61134fc670e186ef0ddc4b10c35feb",
+      "output": "assets/rep5x_stl/spacer-3mm_v1.0.0.stl",
+      "output_sha256": "4eaccfb7b40651b2cd0bd0025efd7b9b5758ddc4e6bf18d40712f82430a9309a",
+      "unit": "millimeter",
+      "unit_scale_to_mm": 1.0,
+      "build_items": 1,
+      "component_references": 0,
+      "non_identity_transforms": 0,
+      "triangles": 684,
+      "bbox_mm": {
+        "min": [
+          -10.50541,
+          -3.476725,
+          0.0
+        ],
+        "max": [
+          10.487542,
+          3.523274,
+          3.0
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "machine": "Rep5x on Ender-3 V3 SE",
+  "profile_id": "rep5x_ender3_v3_se",
+  "source_contract": {
+    "fibr3d_trajectory_order": ["X", "Y", "Z", "B", "C"],
+    "semantic_order": ["X", "Y", "Z", "C", "B"],
+    "linear_unit": "m",
+    "rotary_unit": "rad"
+  },
+  "gcode_contract": {
+    "axis_order": ["X", "Y", "Z", "C", "B"],
+    "linear_unit": "mm",
+    "rotary_unit": "deg",
+    "missing_axis_policy": "modal",
+    "initial_c_deg": 0.0,
+    "initial_b_deg": 0.0,
+    "conical_meta_orientation": "ignored_in_phase_1"
+  },
+  "kinematics": {
+    "lc_mm": 0.0,
+    "lb_mm": 54.67,
+    "rotation_order": ["C_about_Z", "B_about_rotated_Y"],
+    "reference": "Rep5x tools/shared/inverse-kinematics.js and Rep5x-Marlin penta_axis_head_head.cpp native_to_joint()"
+  },
+  "axes": {
+    "X": {"scene_joint": "Rep5x_X_joint", "kind": "prismatic", "scene_sign": 1.0, "zero_offset": 0.0, "soft_min": 0.0, "soft_max": 200.0, "unit": "mm", "continuous": false},
+    "Y": {"scene_joint": "Rep5x_Y_bed_joint", "kind": "prismatic", "scene_sign": -1.0, "zero_offset": 0.0, "soft_min": -40.0, "soft_max": 200.0, "unit": "mm", "continuous": false},
+    "Z": {"scene_joint": "Rep5x_Z_joint", "kind": "prismatic", "scene_sign": 1.0, "zero_offset": 0.0, "soft_min": 0.0, "soft_max": 174.6, "unit": "mm", "continuous": false},
+    "C": {"scene_joint": "Rep5x_C_joint", "kind": "revolute", "scene_sign": 1.0, "zero_offset": 0.0, "soft_min": null, "soft_max": null, "unit": "deg", "continuous": true},
+    "B": {"scene_joint": "Rep5x_B_joint", "kind": "revolute", "scene_sign": 1.0, "zero_offset": 0.0, "soft_min": -135.0, "soft_max": 135.0, "unit": "deg", "continuous": false}
+  },
+  "scene": {
+    "root": "Rep5x_Ender3V3SE",
+    "fixed_frame": "Rep5x_FixedFrame",
+    "bed": "Rep5x_MovingBed",
+    "gantry": "Rep5x_ZGantry",
+    "carriage": "Rep5x_XCarriage",
+    "c_link": "Rep5x_CLink",
+    "b_link": "Rep5x_BLink",
+    "nozzle": "Rep5x_Nozzle",
+    "nozzle_tip": "Rep5x_NozzleTip",
+    "draw_board": "DrawBoard"
+  },
+  "proxy_dimensions_mm": {
+    "bed": [220.0, 220.0, 5.0],
+    "frame_width": 330.0,
+    "frame_height": 370.0,
+    "gantry_width": 300.0
+  }
+}

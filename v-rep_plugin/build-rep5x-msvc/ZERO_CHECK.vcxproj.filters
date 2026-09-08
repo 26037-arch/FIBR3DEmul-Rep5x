@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\build-rep5x-msvc\CMakeFiles\ea750ef559156d2d9b749765f4462f90\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{5951DAB2-E79A-3B66-993D-A1FF1886EC64}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

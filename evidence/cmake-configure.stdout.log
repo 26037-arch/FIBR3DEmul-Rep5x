@@ -1,0 +1,5 @@
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 6.2.9200.
+-- Found Boost: C:/vcpkg/installed/x64-windows/share/boost/BoostConfig.cmake (found suitable version "1.91.0", minimum required is "1.64") found components: system thread serialization date_time
+-- Configuring done (2.6s)
+-- Generating done (0.6s)
+-- Build files have been written to: C:/Users/dryey/Documents/Codex/2026-09-08/files-pasted-by-the-user-fibr3demul/outputs/FIBR3DEmul-Rep5x/v-rep_plugin/build-rep5x-msvc

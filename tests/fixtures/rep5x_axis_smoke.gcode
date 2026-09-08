@@ -1,0 +1,12 @@
+; Rep5x phase-1 isolated-axis and compound-pose smoke test
+G21
+G90
+G0 X20 Y20 Z80 B0 C0 F3000
+G1 X60 F1200
+G1 Y80
+G1 Z120
+G1 C90
+G1 C0
+G1 B45
+G1 B0
+G1 X100 Y90 Z130 C135 B-35 F900

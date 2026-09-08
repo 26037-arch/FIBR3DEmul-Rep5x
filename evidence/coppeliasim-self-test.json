@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "message": "trajectory complete",
+  "coppelia_version": "4100000",
+  "moves_completed": 8,
+  "final_pose_mm_deg": {"X": 80, "Y": 80, "Z": 120, "C": 0, "B": 0},
+  "scene_joints_m_rad": {"X": 0.08, "Y": -0.08, "Z": 0.12, "C": 0, "B": 0},
+  "nozzle_world_mm": [80, -6.93889390391e-15, 120],
+  "tcp_relative_bed_mm": [80, 80, 120]
+}

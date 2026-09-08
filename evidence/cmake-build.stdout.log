@@ -1,0 +1,65 @@
+msbuild 버전 17.14.51+25f168cee(.NET Framework용)
+
+  Checking File Globs
+  1>Checking Build System
+  Building Custom Rule C:/Users/dryey/Documents/Codex/2026-09-08/files-pasted-by-the-user-fibr3demul/outputs/FIBR3DEmul-Rep5x/v-rep_plugin/CMakeLists.txt
+  simExtFIBR3D.cpp
+C:/vcpkg/installed/x64-windows/include\boost/bind.hpp(41): message : The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior. [C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\build-rep5x-msvc\simExtFIBR3D.vcxproj]
+C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xutility(4852,22): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다. [C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\build-rep5x-msvc\simExtFIBR3D.vcxproj]
+  (소스 파일 '../simExtFIBR3D.cpp'을(를) 컴파일하는 중)
+      C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xutility(4852,22):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\simExtFIBR3D.cpp(651,5):
+          컴파일되는 함수 템플릿 인스턴스화 '_OutIt *std::copy<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,float*>(_InIt,_InIt,_OutIt)'에 대한 참조를 확인하세요.
+          with
+          [
+              _OutIt=float *,
+              _Ty=double,
+              _InIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<double>>>
+          ]
+          C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.44.35207\include\xutility(4865,36):
+          컴파일되는 함수 템플릿 인스턴스화 '_OutIt *std::_Copy_unchecked<double*,double*,float*>(_InIt,_Sent,_OutIt)'에 대한 참조를 확인하세요.
+          with
+          [
+              _OutIt=float *,
+              _InIt=double *,
+              _Sent=double *
+          ]
+  
+  Extruder.cpp
+  Listener.cpp
+  Path.cpp
+  Printer.cpp
+  Rep5xMotionAdapter.cpp
+  Server.cpp
+C:/vcpkg/installed/x64-windows/include\boost/bind.hpp(41): message : The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior. [C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\build-rep5x-msvc\simExtFIBR3D.vcxproj]
+  Speaker.cpp
+  Trajectory.cpp
+  VelocityProfile.cpp
+  string_concurrent_queue.cpp
+  luaFunctionData.cpp
+  luaFunctionDataItem.cpp
+  scriptFunctionData.cpp
+  scriptFunctionDataItem.cpp
+  simLib.cpp
+  socketInConnection.cpp
+  Adding library: Winmm.lib
+  Adding library: Ws2_32.lib
+  socketOutConnection.cpp
+  Adding library: Winmm.lib
+  Adding library: Ws2_32.lib
+  stackArray.cpp
+  stackBool.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  stackMap.cpp
+  stackNull.cpp
+  stackNumber.cpp
+  stackObject.cpp
+  stackString.cpp
+  코드를 생성하고 있습니다...
+  shared_memory.c
+     C:/Users/dryey/Documents/Codex/2026-09-08/files-pasted-by-the-user-fibr3demul/outputs/FIBR3DEmul-Rep5x/v-rep_plugin/build-rep5x-msvc/Release/simExtFIBR3D.lib 라이브러리 및 C:/Users/dryey/Documents/Codex/2026-09-08/files-pasted-by-the-user-fibr3demul/outputs/FIBR3DEmul-Rep5x/v-rep_plugin/build-rep5x-msvc/Release/simExtFIBR3D.exp 개체를 생성하고 있습니다.
+  simExtFIBR3D.vcxproj -> C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\build-rep5x-msvc\Release\simExtFIBR3D.dll
+  C:\vcpkg\installed\x64-windows\bin\boost_thread-vc143-mt-x64-1_91.dll -> C:\Users\dryey\Documents\Codex\2026-09-08\files-pasted-by-the-user-fibr3demul\outputs\FIBR3DEmul-Rep5x\v-rep_plugin\build-rep5x-msvc\Release\boost_thread-vc143-mt-x64-1_91.dll done
+  Building Custom Rule C:/Users/dryey/Documents/Codex/2026-09-08/files-pasted-by-the-user-fibr3demul/outputs/FIBR3DEmul-Rep5x/v-rep_plugin/CMakeLists.txt

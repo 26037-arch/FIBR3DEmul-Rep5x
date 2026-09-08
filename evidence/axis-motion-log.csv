@@ -1,0 +1,16 @@
+fixture,sample,gcode_line,mode,tool_X_mm,tool_Y_mm,tool_Z_mm,tool_C_deg,tool_B_deg,joint_X_m,joint_Y_m,joint_Z_m,joint_C_rad,joint_B_rad,tcp_error_mm
+rep5x_axis_smoke.gcode,1,4,5-axis,20.0,20.0,80.0,0.0,0.0,0.02,-0.02,0.08,0.0,0.0,0.0
+rep5x_axis_smoke.gcode,2,5,5-axis,60.0,20.0,80.0,0.0,0.0,0.06,-0.02,0.08,0.0,0.0,0.0
+rep5x_axis_smoke.gcode,3,6,5-axis,60.0,80.0,80.0,0.0,0.0,0.06,-0.08,0.08,0.0,0.0,0.0
+rep5x_axis_smoke.gcode,4,7,5-axis,60.0,80.0,120.0,0.0,0.0,0.06,-0.08,0.12,0.0,0.0,0.0
+rep5x_axis_smoke.gcode,5,8,5-axis,60.0,80.0,120.0,90.0,0.0,0.06,-0.08,0.12,1.5707963267948966,0.0,0.0
+rep5x_axis_smoke.gcode,6,9,5-axis,60.0,80.0,120.0,0.0,0.0,0.06,-0.08,0.12,0.0,0.0,0.0
+rep5x_axis_smoke.gcode,7,10,5-axis,60.0,80.0,120.0,0.0,45.0,0.09865752772746857,-0.08,0.10398752772746855,0.0,0.7853981633974483,7.105427357601002e-15
+rep5x_axis_smoke.gcode,8,11,5-axis,60.0,80.0,120.0,0.0,0.0,0.06,-0.08,0.12,0.0,0.0,0.0
+rep5x_axis_smoke.gcode,9,12,5-axis,100.0,90.0,130.0,135.0,-35.0,0.12217304699206316,-0.06782695300793684,0.12011304226127918,2.356194490192345,-0.6108652381980153,0.0
+slicer_xyz_smoke.gcode,1,6,XYZ-only compatibility mode,20.0,20.0,0.2,0.0,0.0,0.02,-0.02,0.0002,0.0,0.0,0.0
+slicer_xyz_smoke.gcode,2,7,XYZ-only compatibility mode,40.0,20.0,0.2,0.0,0.0,0.04,-0.02,0.0002,0.0,0.0,0.0
+slicer_xyz_smoke.gcode,3,8,XYZ-only compatibility mode,40.0,40.0,0.2,0.0,0.0,0.04,-0.04,0.0002,0.0,0.0,0.0
+slicer_xyz_smoke.gcode,4,9,XYZ-only compatibility mode,20.0,40.0,0.2,0.0,0.0,0.02,-0.04,0.0002,0.0,0.0,0.0
+slicer_xyz_smoke.gcode,5,10,XYZ-only compatibility mode,20.0,20.0,0.2,0.0,0.0,0.02,-0.02,0.0002,0.0,0.0,0.0
+slicer_xyz_smoke.gcode,6,11,XYZ-only compatibility mode,20.0,20.0,0.4,0.0,0.0,0.02,-0.02,0.0004,0.0,0.0,0.0
