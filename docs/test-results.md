@@ -73,6 +73,6 @@ Results: **18 tests passed** (two new extrusion-mode tests). The Lua add-on exec
 | `rep5x_axis_smoke.gcode` | 9 | 278 | exact (100, 90, 130) at C = 135°, B = -35° | 0 (no E words) | – |
 | `slicer_xyz_smoke.gcode` | 6 | 88 | exact (20, 20, 0.4) | 324 on the 20..40 mm square | 0.49 mm |
 
-Every bead sample landed on the commanded path, the add-on's own tip-vs-command cross-check never fired, 124 proxy shapes were created with unique aliases, and slanted members (belts, filament strand) were verified to end exactly at their anchor points.
+Every bead sample landed on the commanded path, the add-on's own tip-vs-command cross-check never fired, 119 proxy shapes were created with unique aliases, and slanted members (belts, filament strand) were verified to end exactly at their anchor points.
 
 Not verified here: rendering and the exact CoppeliaSim 4.10 behaviour of `sim.addDrawingObject` with a parent (the add-on follows the legacy plugin, which passed world coordinates with the bed as parent), `sim.drawing_itemsizes`/`sim.drawing_linestrip` availability (both are guarded with fallbacks), and the cone primitive's apex direction. The next CoppeliaSim session should run the built-in test print and confirm that beads sit on the build plate under the nozzle and move with the bed.
