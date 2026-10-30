@@ -6,13 +6,15 @@ This branch turns FIBR3DEmul into a Rep5x-on-Ender-3-V3-SE virtual printer witho
 
 - Explicit units and axis boundary: G-code `X/Y/Z` are mm, `B/C` are degrees; CoppeliaSim receives metres/radians in scene order `X/Y/Z/C/B`. Upstream trajectory samples remain `X/Y/Z/B/C` and are reordered once.
 - Rep5x inverse kinematics with `LC=0 mm`, `LB=54.67 mm`, C yaw about Z, then B tilt about the rotated Y axis.
-- Generated Ender-style proxy scene with a moving Y bed, Z gantry, X carriage, continuous C joint, limited B joint, nozzle, TCP marker, and duplicate/missing-handle validation.
-- Add-on UI: build/connect scene, open G-code, start/pause/resume/stop, `0.1×–5×` speed, home, per-axis jog, current pose, and nozzle world position.
-- G-code subset: `G0/G1`, `G20/G21` (also legacy `G70/G71`), `G90/G91`, `G92`, modal `X/Y/Z/B/C`, standard `E/F`, and non-motion `M` warnings. XYZ-only slicer files leave B/C at zero. `CONICAL_META` is intentionally ignored in phase 1.
+- Generated Ender-3 V3 SE proxy scene (4040/2020 extrusion frame, moving Y bed with build plate and levelling hardware, Z lead screw and stepper, X gantry with belt and wheels, display, PSU, frame-mounted Bowden extruder and spool) carrying a Rep5x head (printed carriage mount, C stepper/belt/driven pulley, slip ring, B arm with stepper/belt/driven pulley, finned hotend, fan, socked heater block, brass nozzle). Continuous C joint, limited B joint, TCP marker, and duplicate/missing-handle validation are unchanged. See `evidence/scene-preview-mock*.png` for mock renders and `docs/scene-hierarchy.md` for the tree.
+- Filament deposition from the nozzle: `G1` moves with a positive extruder delta lay a bead of sphere samples (width from the volumetric flow, 0.45 mm default) into a drawing object parented to the bed origin, so the print travels with the Y bed. A melt-drop marker shows at the tip while extruding and a line-strip Bowden tube links the extruder to the head.
+- Feed-rate playback: segments are interpolated linearly in tool space at `F` (default 1500 mm/min, G0 at 6000 mm/min, rotations at 90 deg/s) times the UI speed factor, instead of one jump per move.
+- Add-on UI: build/connect scene, open G-code, built-in test print, start/pause/resume/stop, `0.1×–5×` speed, home, per-axis jog, clear print, current pose, nozzle world position, and extrusion counters.
+- G-code subset: `G0/G1`, `G28` (home as a travel), `G20/G21` (also legacy `G70/G71`), `G90/G91`, `G92` (axes and E), `M82/M83`, modal `X/Y/Z/B/C`, `E` (or the legacy FIBR3D `A` word) and `F`. Common temperature/fan/motor `M` codes are ignored silently; other `M` codes warn. XYZ-only slicer files leave B/C at zero. `CONICAL_META` is intentionally ignored in phase 1.
 - Input, soft-limit, NaN/Infinity, trajectory shape, empty queue, profile, scene-object, and joint-handle checks fail with line/object context.
-- Deterministic kinematics, parser, unit-boundary, hierarchy, continuous-motion, STL-conversion, and slicer-compatibility tests.
+- Deterministic kinematics, parser (including extrusion modes), unit-boundary, hierarchy, continuous-motion, STL-conversion, and slicer-compatibility tests, plus a headless Lua mock harness that executes the real add-on.
 
-Extrusion-mesh generation, collision/material simulation, firmware emulation, calibration, and real-printer control are outside phase 1. For the Rep5x profile the legacy extrusion writer is deliberately disabled because it assumes the original Cartesian joint order.
+Extruded material is a visual bead record (drawing object), not a mesh: collision/material simulation, firmware emulation, calibration, and real-printer control remain out of scope. For the Rep5x profile the legacy C++ extrusion writer stays disabled because it assumes the original Cartesian joint order; the Lua add-on performs deposition itself.
 
 ## Quick verification (no CoppeliaSim required)
 
@@ -26,6 +28,16 @@ python tools\generate_evidence.py
 ```
 
 Python 3.10+ is sufficient; the headless verifier uses only the standard library. Generated evidence is written to `evidence/`.
+
+The Lua add-on itself can be executed without CoppeliaSim through a mock of the `sim` API (`pip install lupa numpy`, plus `matplotlib` for previews):
+
+```powershell
+python tools\lua_mock_harness.py
+python tools\lua_mock_harness.py --gcode tests\fixtures\slicer_xyz_smoke.gcode
+python tools\lua_mock_harness.py --render evidence\scene-preview-mock.png --c 135 --b -35
+```
+
+The harness builds the scene, replays the trajectory tick by tick, and fails if the nozzle tip relative to the bed origin departs from the commanded pose, if any required alias is duplicated, or if the add-on logs an error. The summary reports bead samples, their bed-relative extent and width. It validates the Lua logic and frames, not CoppeliaSim's renderer or exact API behaviour.
 
 ## Windows build and CoppeliaSim setup
 
@@ -52,7 +64,7 @@ nuget restore gcode_interpreter\GCodeInterpreter.sln
 msbuild gcode_interpreter\GCodeInterpreter.sln /p:Configuration=Release
 ```
 
-Restart CoppeliaSim. Open **Add-ons → Rep5x Scene Builder**, click **Build scene**, and then start simulation. The add-on remains useful without the DLL: open either file from `tests\fixtures` and use its local playback controls. With the DLL present, simulation start calls `simFIBR3D.init('Rep5x_Ender3V3SE', 5, <profile>)`; launch the original GCodeInterpreter afterward to exercise the preserved network pipeline.
+Restart CoppeliaSim. Open **Add-ons → Rep5x Scene Builder**, click **Build scene**, and then start simulation. The add-on remains useful without the DLL: click **Test print** (two first-layer squares followed by the five-axis sweep) or **Open G-code** with any `G0/G1 ... E` slicer file, press **Start**, and watch the bead appear under the nozzle; **Clear print** removes it. For unattended runs set the named string parameters `rep5x.selfTest` (result JSON path) and optionally `rep5x.gcode` (file to replay) before loading the add-on. With the DLL present, simulation start calls `simFIBR3D.init('Rep5x_Ender3V3SE', 5, <profile>)`; launch the original GCodeInterpreter afterward to exercise the preserved network pipeline.
 
 No serial port, USB device, firmware endpoint, or printer network address is opened anywhere in the Rep5x add-on/runtime.
 

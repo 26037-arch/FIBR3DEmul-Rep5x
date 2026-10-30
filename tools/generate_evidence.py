@@ -40,6 +40,8 @@ def main() -> None:
                 "tool_Z_mm": move.pose.z_mm,
                 "tool_C_deg": move.pose.c_deg,
                 "tool_B_deg": move.pose.b_deg,
+                "extrude": move.extrude,
+                "extrude_mm": move.extrude_mm,
                 "joint_X_m": joints.x_m,
                 "joint_Y_m": joints.y_m,
                 "joint_Z_m": joints.z_m,

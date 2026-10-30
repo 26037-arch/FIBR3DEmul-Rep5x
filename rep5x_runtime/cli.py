@@ -35,6 +35,8 @@ def main(argv: list[str] | None = None) -> int:
     result = {
         "mode": program.compatibility_mode,
         "moves": len(program.moves),
+        "extruding_moves": sum(1 for move in program.moves if move.extrude),
+        "filament_mm": sum(move.extrude_mm for move in program.moves if move.extrude),
         "warnings": list(program.warnings),
         "final_tool_pose_mm_deg": final_move.pose.__dict__,
         "final_scene_joints_m_rad": scene.as_tuple(),
@@ -45,7 +47,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=2))
     else:
         print(f"mode: {program.compatibility_mode}")
-        print(f"moves: {len(program.moves)}")
+        print(f"moves: {len(program.moves)} ({sum(1 for move in program.moves if move.extrude)} extruding)")
         for warning in program.warnings:
             print(f"WARNING: {warning}")
         print("final X/Y/Z/C/B: " + ", ".join(f"{v:.6f}" for v in scene.as_tuple()))
