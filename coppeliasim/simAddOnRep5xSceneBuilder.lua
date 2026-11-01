@@ -142,7 +142,7 @@ local function cyl(name,d,h,parent,pos,color,axis,spec)
 end
 
 local function sphere(name,d,parent,pos,color,spec)
-    return prim(name,sim.primitiveshape_sphere,{d,d,d},parent,pos,{0,0,0},color,spec)
+    return prim(name,sim.primitiveshape_spheroid,{d,d,d},parent,pos,{0,0,0},color,spec)
 end
 
 local function cross(a,b) return {a[2]*b[3]-a[3]*b[2],a[3]*b[1]-a[1]*b[3],a[1]*b[2]-a[2]*b[1]} end

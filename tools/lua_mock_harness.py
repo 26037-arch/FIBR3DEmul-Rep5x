@@ -22,6 +22,7 @@ import argparse
 import json
 import math
 import os
+import shutil
 import sys
 import tempfile
 from pathlib import Path
@@ -67,7 +68,7 @@ CONSTANT_NAMES = [
     "boolparam_headless", "stringparam_application_path", "intparam_program_full_version",
     "verbosity_scripterrors", "verbosity_scriptinfos", "verbosity_scriptwarnings", "handle_all",
     "jointmode_passive", "joint_prismatic", "joint_revolute", "primitiveshape_cuboid",
-    "primitiveshape_cylinder", "primitiveshape_cone", "primitiveshape_sphere", "shapeintparam_static",
+    "primitiveshape_cylinder", "primitiveshape_cone", "primitiveshape_spheroid", "shapeintparam_static",
     "shapeintparam_respondable", "colorcomponent_ambient_diffuse", "colorcomponent_specular",
     "objintparam_visibility_layer",
 ]
@@ -266,7 +267,10 @@ class MockSim:
 
 def run(gcode: str | None = None, dt: float = 0.05, tmax: float = 600.0) -> tuple[MockSim, dict, int]:
     app = tempfile.mkdtemp(prefix="rep5x-mock-")
-    os.symlink(ADDON_DIR, os.path.join(app, "addOns"))
+    try:
+        os.symlink(ADDON_DIR, os.path.join(app, "addOns"))
+    except OSError:  # Windows without symlink privilege
+        shutil.copytree(ADDON_DIR, os.path.join(app, "addOns"))
     out = os.path.join(app, "selftest.json")
     params = {"app": app, "rep5x.selfTest": out}
     if gcode:
@@ -370,7 +374,7 @@ def render(out: Path, c_deg: float, b_deg: float) -> None:
             v = np.array([[-x, -y, -z], [x, -y, -z], [x, y, -z], [-x, y, -z], [-x, -y, z], [x, -y, z], [x, y, z], [-x, y, z]])
             return [v[i] for i in ([0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 5, 4], [2, 3, 7, 6], [1, 2, 6, 5], [0, 3, 7, 4])]
         r = sx / 2
-        if kind == C["primitiveshape_sphere"]:
+        if kind == C["primitiveshape_spheroid"]:
             n = 8
             def pt(th, ph):
                 return np.array([r * math.sin(th) * math.cos(ph), r * math.sin(th) * math.sin(ph), r * math.cos(th)])
