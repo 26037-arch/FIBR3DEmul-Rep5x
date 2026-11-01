@@ -24,6 +24,8 @@ class Move:
     pose: ToolPose
     feed_mm_min: float | None
     extrusion: float | None
+    extrude_mm: float = 0.0
+    extrude: bool = False
 
 
 @dataclass(frozen=True)
@@ -32,6 +34,9 @@ class GCodeProgram:
     warnings: tuple[str, ...]
     compatibility_mode: str
 
+
+# Temperature, fan, motor and progress codes a virtual printer can ignore silently.
+_SILENT_M_CODES = {17, 18, 73, 84, 104, 105, 106, 107, 109, 117, 140, 190, 201, 203, 204, 205, 220, 221, 900}
 
 _WORD = re.compile(r"([A-Za-z])\s*([-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?)")
 _PAREN_COMMENT = re.compile(r"\([^)]*\)")
@@ -46,10 +51,13 @@ def parse_gcode(source: str, profile: MachineProfile) -> GCodeProgram:
     linear_scale = 1.0
     current = {"X": 0.0, "Y": 0.0, "Z": 0.0, "C": 0.0, "B": 0.0}
     feed: float | None = None
+    e_absolute = True
+    e_position = 0.0
     moves: list[Move] = []
     warnings: list[str] = []
     has_rotary = False
     saw_conical_meta = False
+    has_extrusion = False
 
     for line_no, raw in enumerate(source.splitlines(), 1):
         if "CONICAL_META" in raw.upper():
@@ -61,7 +69,7 @@ def parse_gcode(source: str, profile: MachineProfile) -> GCodeProgram:
         if not words:
             raise GCodeError(line_no, raw, "unsupported or malformed command")
         letters = {letter for letter, _ in words}
-        unknown = sorted(letters - {"G", "M", "X", "Y", "Z", "B", "C", "E", "F", "N", "S", "T", "P"})
+        unknown = sorted(letters - {"G", "M", "X", "Y", "Z", "B", "C", "E", "A", "F", "N", "S", "T", "P"})
         if unknown:
             raise GCodeError(line_no, raw, f"unknown axis/word {','.join(unknown)}")
 
@@ -76,38 +84,60 @@ def parse_gcode(source: str, profile: MachineProfile) -> GCodeProgram:
                 linear_scale = 25.4
             elif g in (21, 71):
                 linear_scale = 1.0
-            elif g in (0, 1, 92):
+            elif g in (0, 1, 28, 92):
                 pass
             else:
                 raise GCodeError(line_no, raw, f"unsupported G-code G{g}")
         for m in m_codes:
-            warnings.append(f"line {line_no}: skipped non-motion M{m}: {raw.rstrip()}")
+            if m == 82:
+                e_absolute = True
+            elif m == 83:
+                e_absolute = False
+            elif m not in _SILENT_M_CODES:
+                warnings.append(f"line {line_no}: skipped non-motion M{m}: {raw.rstrip()}")
+        for letter, value in words:
+            if letter == "F":
+                feed = value * linear_scale
 
-        motion_codes = [g for g in g_codes if g in (0, 1)]
+        motion_codes = [g for g in g_codes if g in (0, 1, 28)]
         if not motion_codes:
             if 92 in g_codes:
                 for axis, value in words:
                     if axis in current:
                         current[axis] = value * linear_scale if axis in "XYZ" else value
+                    elif axis in ("E", "A"):
+                        e_position = value
             continue
         if len(motion_codes) != 1:
             raise GCodeError(line_no, raw, "multiple motion commands in one block")
 
         target = dict(current)
         extrusion: float | None = None
-        for letter, value in words:
-            if letter in current:
-                scaled = value * linear_scale if letter in "XYZ" else value
-                target[letter] = scaled if absolute else current[letter] + scaled
-                if letter in ("B", "C"):
-                    has_rotary = True
-            elif letter == "F":
-                feed = value * linear_scale
-            elif letter == "E":
-                extrusion = value
+        delta_e = 0.0
+        if motion_codes[0] == 28:
+            homed = [letter for letter, _ in words if letter in current]
+            for axis in homed or list(current):
+                target[axis] = 0.0
+        else:
+            for letter, value in words:
+                if letter in current:
+                    scaled = value * linear_scale if letter in "XYZ" else value
+                    target[letter] = scaled if absolute else current[letter] + scaled
+                    if letter in ("B", "C"):
+                        has_rotary = True
+                elif letter in ("E", "A"):
+                    extrusion = value
+                    has_extrusion = True
+                    if e_absolute:
+                        delta_e = value - e_position
+                        e_position = value
+                    else:
+                        delta_e = value
+                        e_position += value
         pose = ToolPose(target["X"], target["Y"], target["Z"], target["C"], target["B"])
         profile.validate_tool_pose(pose, line=line_no)
-        moves.append(Move(line_no, raw, f"G{motion_codes[0]}", pose, feed, extrusion))
+        motion = {0: "G0", 1: "G1", 28: "G28"}[motion_codes[0]]
+        moves.append(Move(line_no, raw, motion, pose, feed, extrusion, delta_e, motion == "G1" and delta_e > 0))
         current = target
 
     if not moves:
@@ -117,6 +147,8 @@ def parse_gcode(source: str, profile: MachineProfile) -> GCodeProgram:
         warnings.append("XYZ-only compatibility mode: B/C were absent and remain at their modal initial value 0 deg")
     if saw_conical_meta:
         warnings.append("CONICAL_META detected but ignored in phase 1; no B/C orientation was inferred")
+    if not has_extrusion:
+        warnings.append("no E/A words: nothing will be extruded")
     return GCodeProgram(tuple(moves), tuple(warnings), mode)
 
 

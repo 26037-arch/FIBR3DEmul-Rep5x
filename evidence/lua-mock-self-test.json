@@ -1,0 +1,36 @@
+{
+  "gcode": "built-in test trajectory",
+  "ok": true,
+  "moves_completed": 18,
+  "simulation_steps": 706,
+  "final_pose_mm_deg": {
+    "X": 80,
+    "Y": 80,
+    "Z": 120,
+    "C": 0,
+    "B": 0
+  },
+  "tcp_relative_bed_mm": [
+    80,
+    80,
+    120
+  ],
+  "scene_objects": 130,
+  "shapes": 119,
+  "bead_samples": 1768,
+  "filament_mm": 14.64,
+  "bead_bed_mm_min": [
+    20.0,
+    20.0,
+    0.2
+  ],
+  "bead_bed_mm_max": [
+    80.0,
+    80.0,
+    0.2
+  ],
+  "bead_width_mm_range": [
+    0.446,
+    0.447
+  ]
+}

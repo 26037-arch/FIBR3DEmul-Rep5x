@@ -43,9 +43,22 @@
     "draw_board": "DrawBoard"
   },
   "proxy_dimensions_mm": {
-    "bed": [220.0, 220.0, 5.0],
-    "frame_width": 330.0,
-    "frame_height": 370.0,
-    "gantry_width": 300.0
+    "print_area": [220.0, 220.0],
+    "build_plate": [235.0, 235.0, 1.0],
+    "heated_bed": [235.0, 235.0, 3.0],
+    "frame_width": 420.0,
+    "frame_depth": 400.0,
+    "frame_height": 440.0,
+    "gantry_length": 335.0,
+    "gantry_above_tip": 115.0,
+    "note": "Visual proxy only (Ender-3 V3 SE footprint with the Rep5x head). The G-code origin is the front-left corner of the print area; kinematic frames are unchanged."
+  },
+  "extrusion_visual": {
+    "filament_diameter_mm": 1.75,
+    "bead_sample_spacing_mm": 0.25,
+    "bead_width_mm_default": 0.45,
+    "bead_width_mm_range": [0.15, 1.2],
+    "max_bead_samples": 400000,
+    "deposits_on": "G1 with positive E/A delta (M82 absolute or M83 relative); G0 and retractions deposit nothing"
   }
 }

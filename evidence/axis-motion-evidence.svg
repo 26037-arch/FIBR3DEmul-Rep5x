@@ -22,5 +22,5 @@
 <text x="480" y="454" fill="#dbe4f0" font-family="Segoe UI, sans-serif" font-size="15">C (deg)</text>
 <line x1="574" y1="448" x2="598" y2="448" stroke="#ef5350" stroke-width="4"/>
 <text x="605" y="454" fill="#dbe4f0" font-family="Segoe UI, sans-serif" font-size="15">B (deg)</text>
-<text x="74" y="493" fill="#a9b6c8" font-family="Segoe UI, sans-serif" font-size="14">9 atomic pose samples; TCP reconstruction error max 7.105e-15 mm</text>
+<text x="74" y="493" fill="#a9b6c8" font-family="Segoe UI, sans-serif" font-size="14">9 atomic pose samples; TCP reconstruction error max 0.000e+00 mm</text>
 </svg>

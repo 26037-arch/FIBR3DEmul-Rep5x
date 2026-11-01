@@ -45,6 +45,32 @@ class GCodeAndAdapterTests(unittest.TestCase):
         actual = [{"X": m.pose.x_mm, "Y": m.pose.y_mm, "Z": m.pose.z_mm, "C": m.pose.c_deg, "B": m.pose.b_deg} for m in program.moves]
         self.assertEqual(actual, golden["rep5x_axis_smoke.gcode"])
 
+    def test_extrusion_modes_home_and_legacy_a_word(self) -> None:
+        program = parse_gcode(
+            "G21\nG90\nM82\nG28\nG92 E0\nG1 X10 E0.5 F1200\nG0 X20 E1.0\nG1 X30 E0.8\nM83\nG1 X40 E0.3\nG1 X50 A0.2\nG1 X60\nG28 X\n",
+            PROFILE,
+        )
+        motions = [m.motion for m in program.moves]
+        self.assertEqual(motions, ["G28", "G1", "G0", "G1", "G1", "G1", "G1", "G28"])
+        self.assertEqual(program.moves[0].pose, ToolPose(0, 0, 0, 0, 0))
+        self.assertAlmostEqual(program.moves[1].extrude_mm, 0.5)
+        self.assertTrue(program.moves[1].extrude)
+        self.assertFalse(program.moves[2].extrude, "G0 travel never deposits")
+        self.assertAlmostEqual(program.moves[3].extrude_mm, -0.2)
+        self.assertFalse(program.moves[3].extrude, "retraction deposits nothing")
+        self.assertAlmostEqual(program.moves[4].extrude_mm, 0.3)
+        self.assertAlmostEqual(program.moves[5].extrude_mm, 0.2)
+        self.assertTrue(program.moves[5].extrude)
+        self.assertFalse(program.moves[6].extrude)
+        self.assertEqual(program.moves[7].pose, ToolPose(0, 0, 0, 0, 0))
+        self.assertFalse(any("M82" in w or "M83" in w for w in program.warnings))
+
+    def test_slicer_fixture_marks_extruding_square(self) -> None:
+        text = (ROOT / "tests" / "fixtures" / "slicer_xyz_smoke.gcode").read_text(encoding="utf-8")
+        program = parse_gcode(text, PROFILE)
+        self.assertEqual([m.extrude for m in program.moves], [False, True, True, True, True, False])
+        self.assertAlmostEqual(sum(m.extrude_mm for m in program.moves), 3.2)
+
     def test_limit_and_nonfinite_fail_loudly(self) -> None:
         with self.assertRaisesRegex(Exception, "soft limit"):
             parse_gcode("G1 X201", PROFILE)
